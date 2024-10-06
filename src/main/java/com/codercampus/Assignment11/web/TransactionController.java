@@ -19,7 +19,6 @@ public class TransactionController {
     @GetMapping("/transactions")
     public String showAllTransactions(Model model) {
         List<Transaction> transactions = transactionService.findAll();
-        System.out.println(transactions);
         model.addAttribute("transactions", transactions);
         return "transactions";
     }
@@ -27,7 +26,6 @@ public class TransactionController {
     @GetMapping("/transactions/{transactionId}")
     public String showTransaction(@PathVariable Long transactionId, Model model) {
         Transaction transaction = transactionService.findById(transactionId);
-        System.out.println(transaction);
         model.addAttribute("transaction", transaction);
         return "transaction";
     }
