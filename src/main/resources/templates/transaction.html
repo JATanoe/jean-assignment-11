@@ -1,0 +1,19 @@
+<html xmlns:th="http://thymeleaf.org" lang="en">
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Online Bank</title>
+		<link rel="stylesheet" href="/css/transactions.css"/>
+		<style>
+			p { margin-block: 0;}
+		</style>
+	</head>
+	<body>
+		<h1 th:inline="text">Transaction ID: [[${transaction.id}]]
+			<span th:text="((${transaction.type.equals('D')}) ? 'Debit' : 'Credit')"></span>
+		</h1>
+		<p th:inline="text">Date: [[${transaction.date}]]</p>
+		<p th:inline="text">Amount: [[${transaction.amount}]]</p>
+		<p th:inline="text">Description: [[${transaction.description}]]</p>
+		<p><a href="/transactions">back</a></p>
+	</body>
+</html>
