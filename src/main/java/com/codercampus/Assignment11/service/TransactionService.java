@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class TransactionService {
 
-    @Autowired
-    private TransactionRepository transactionRepo;
+    private final TransactionRepository transactionRepo;
+
+    public TransactionService(TransactionRepository transactionRepo) {
+        this.transactionRepo = transactionRepo;
+    }
 
     public List<Transaction> findAll() {
         return transactionRepo.findAll();

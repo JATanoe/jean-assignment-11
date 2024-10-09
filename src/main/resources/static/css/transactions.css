@@ -11,3 +11,10 @@ table th {
   color: white;
   background-color: black;
 }
+p {
+    margin-block: 0;
+}
+
+.error-message {
+    color: darkred;
+}

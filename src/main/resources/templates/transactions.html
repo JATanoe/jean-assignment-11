@@ -1,4 +1,4 @@
-<html xmlns:th="http://thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 	<head>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Online Bank</title>
@@ -16,16 +16,16 @@
 				<th>Funds Out</th>
 			</tr>
 
-			<tr th:each="t: ${transactions}">
+			<tr th:each="transaction: ${transactions}">
 				<td th:inline="text">
-					<a th:href="@{/transactions/{id}(id=${t.id})}">
-						<span th:text="${t.id}"></span>
+					<a th:href="@{/transactions/{id}(id=${transaction.id})}">
+						<span th:text="${transaction.id}"></span>
 					</a>
 				</td>
-				<td th:text="${t.date}"></td>
-				<td th:text="${t.retailer}"></td>
-				<td th:inline="text"><span th:text="${t.amount}" th:if="${t.type.equals('C')}"></span></td>
-				<td th:inline="text"><span th:text="${t.amount}" th:if="${t.type.equals('D')}"></span></td>
+				<td th:text="${transaction.date}"></td>
+				<td th:text="${transaction.retailer}"></td>
+				<td><span th:text="${transaction.amount}" th:if="${transaction.type.equals('C')}"></span></td>
+				<td><span th:text="${transaction.amount}" th:if="${transaction.type.equals('D')}"></span></td>
 			</tr>
 		</table>
 	</body>
