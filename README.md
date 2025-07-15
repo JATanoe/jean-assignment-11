@@ -1,31 +1,54 @@
-# Assignment 11 Starter
+# Transaction Viewer Application
 
-To use this template:
+## Overview
+This is a Spring Boot web application that allows users to view and explore financial transaction data. The application provides a simple interface to browse through transactions, view transaction details, and distinguish between credit and debit transactions.
 
-- Click on the green `Use this template` button.
+## Features
+- View a list of all transactions sorted by date
+- See transaction details including ID, date, retailer, and amount
+- Distinguish between credit (funds in) and debit (funds out) transactions
+- Responsive web interface with clean, easy-to-read tables
 
-- Name your new project `Assignment11` or whatever convention you use to name your assignment projects.
+## Technology Stack
+- Java
+- Spring Boot
+- Thymeleaf templates
+- HTML/CSS
 
-- This will create a repository on github for your assignment. Clone this remote repository down to your local computer, as you would clone any other repository. Place it on your computer in the same folder as your other coderscampus assignments.
+## Getting Started
 
-- Import into Eclipse or open with VSCode or IntelliJ as you would any other Spring boot maven project.
+### Prerequisites
+- Java 8 or higher
+- Maven
 
-__You now have the starting code for Assignment 11. Follow instructions in the assignment definition to complete this project.__
+### Setup
+1. Clone this repository
+2. Navigate to the project directory
+3. Run the application using Maven:
+   ```
+   mvn spring-boot:run
+   ```
+4. Open your browser and navigate to `http://localhost:8080/transactions`
 
-## CAUTION!!!
+## Application Structure
+- **Domain**: Contains the Transaction model class
+- **Repository**: Handles data access and loading transactions from the serialized file
+- **Service**: Provides business logic and connects controllers with repositories
+- **Controller**: Handles HTTP requests and returns appropriate views
+- **Templates**: Thymeleaf HTML templates for rendering the UI
 
-This assignment currently has a bug - sorta.
+## API Endpoints
+- `GET /transactions` - Returns a page displaying all transactions
+- `GET /transactions/{id}` - Returns a page displaying details for a specific transaction
 
-All of the java packages are `com.codercampus...` instead of `com.coderscampus...` 
+## Important Notes
 
-This is technically a valid package name, but it throws students off, because everything else in the bootcamp is `com.coderscampus...`
+### Package Name
+All of the Java packages are `com.codercampus...` instead of `com.coderscampus...`. This is technically a valid package name, but it differs from the standard naming convention used in other related projects. When working with this application, please use `com.codercampus...` for your package names.
 
-To keep yourself from spending hours wondering why your code is not working, please use `com.codercampus...` for your package name, rather than `com.coderscampus...`
+### Dependency on Binary File
+This project is entirely dependent upon a binary file named `doNotTouch` located in `src/main/resources/doNotTouch/`. If this file is moved, renamed, or changed, the Transaction.java class will not work and the project will fail to run as intended.
 
-## Troubleshooting
+You can test this by running the unit tests provided. If they fail, the file may have been moved or renamed. Note that the tests will not fail if you change the internals of this binary file.
 
-This project is entirely dependent upon a _binary_ file cleverly named `doNotTouch`. If this file is moved, renamed, or even changed, then `Transaction.java` will not work and the project will fail to run as intended.
-
-You can always test this by running the unit test provided. If it fails to run green then the file may have been moved or renamed. This unit test will not fail, however, if you change the internals of this binary file.
-
-The rest of this project should conform to your normal expectations for any Spring Boot web project.
+The rest of this project follows standard conventions for a Spring Boot web application.
